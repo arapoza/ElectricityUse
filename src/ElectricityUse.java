@@ -8,7 +8,7 @@ public class ElectricityUse
 		// TODO Auto-generated method stub
 		double Watts = 0;
 		
-		System.out.println("Tool to calculate your computer's lifetime cost.");
+		System.out.println("Tool to calculate your computer's lifetime cost. If prompt is given for options, type selection exactly as shown.");
 		
 		Scanner scantype = new Scanner(System.in);
 		System.out.println("Enter the type of computer you want to buy, laptop or desktop.");
@@ -21,6 +21,10 @@ public class ElectricityUse
 		Scanner scanscreen = new Scanner(System.in);
 		System.out.println("Enter the size of your screen (round to the nearest inch).");
 		int size = scanscreen.nextInt();
+		
+		Scanner scancpu = new Scanner(System.in);
+		System.out.println("What line of cpu does your computer have (i3, i5, i7, AMD 2 core, AMD 4 core, AMD 8 core)?");
+		String cpu = scancpu.nextLine();
 		
 		Scanner scanram = new Scanner(System.in);
 		System.out.println("What type of RAM does your computer have (DDR3 or DDR4)?");
