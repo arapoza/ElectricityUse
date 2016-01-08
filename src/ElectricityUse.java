@@ -21,6 +21,12 @@ public class ElectricityUse
 		System.out.println("Enter the size of your screen (round to the nearest inch).");
 		int size = scanscreen.nextInt();
 		
+		Scanner scanram = new Scanner(System.in);
+		System.out.println("What type of RAM does your computer have (DDR3 or DDR4)?");
+		String ram = scanram.next();
+		
+		
+		
 		
 	}
 
