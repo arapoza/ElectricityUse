@@ -25,7 +25,18 @@ public class ElectricityUse
 		System.out.println("What type of RAM does your computer have (DDR3 or DDR4)?");
 		String ram = scanram.next();
 		
+		Scanner scandrive = new Scanner(System.in);
+		System.out.println("Enter the type of storage your computer will use (hard drive or SSD).");
+		String drive = scandrive.nextLine();
 		
+		
+		Scanner scanmouse = new Scanner(System.in);
+		System.out.println("Will you be buying a wireless mouse for your computer, yes or no?");
+		String mouse = scanmouse.next();
+		
+		Scanner scanlength = new Scanner(System.in);
+		System.out.println("How long do you plan to keep you computer (in years)?");
+		double length = scanlength.nextDouble();
 		
 		
 	}
