@@ -6,6 +6,7 @@ public class ElectricityUse
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
+		double Watts = 0;
 		
 		System.out.println("Tool to calculate your computer's lifetime cost.");
 		
@@ -29,7 +30,6 @@ public class ElectricityUse
 		System.out.println("Enter the type of storage your computer will use (hard drive or SSD).");
 		String drive = scandrive.nextLine();
 		
-		
 		Scanner scanmouse = new Scanner(System.in);
 		System.out.println("Will you be buying a wireless mouse for your computer, yes or no?");
 		String mouse = scanmouse.next();
@@ -38,7 +38,25 @@ public class ElectricityUse
 		System.out.println("How long do you plan to keep you computer (in years)?");
 		double length = scanlength.nextDouble();
 		
+		if (drive == "hard drive")
+			if (type == "laptop")
+				Watts = Watts + 1.85;
+				
+			if (type == "desktop")
+				Watts = Watts + 7.75;
+			
+		if (drive == "SSD")
+			Watts = Watts + 1.7;
 		
+		if (ram == "DDR3")
+			Watts = Watts + 3;
+		
+		if (ram == "DDR4")
+			Watts = Watts + 1.5;
+		
+		
+				
+				
 	}
 
 }
