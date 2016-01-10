@@ -82,6 +82,9 @@ public class ElectricityUse
 		if (ram.equals("DDR4"))
 			Watts = Watts + 1.5;
 		
+		if (mouse.equals("yes"))
+			
+		
 		System.out.println(Watts);
 				
 	}
