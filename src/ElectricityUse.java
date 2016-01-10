@@ -8,9 +8,14 @@ public class ElectricityUse
 	{
 		// TODO Auto-generated method stub
 		double Watts = 0;
+		
 		Integer[] screenSize = {15, 17, 19, 20, 21, 22, 24, 30, 32, 37, 42, 50};
 		Integer[] wattage    = {15, 18, 20, 24, 26, 30, 40, 50, 55, 60, 80, 100};
 		Integer screenWattage = 0;
+		
+		String[] cpuModel    = {"i3", "i5", "i7", "AMD 2 core", "AMD 4 core", "AMD 8 core"};
+		Integer[] cpuWattage = {64, 84, 86, 80, 95, 110};
+		Integer cpuWatts = 0;
 		
 		System.out.println("Tool to calculate your computer's lifetime cost. If prompt is given for options, type selection exactly as shown.");
 		
@@ -46,10 +51,21 @@ public class ElectricityUse
 		System.out.println("How long do you plan to keep you computer (in years)?");
 		double length = scanlength.nextDouble();
 		
-		for(int eachItem : screenSize) {
-			if(Arrays.asList(screenSize).contains(type))
-			screenWattage = wattage[Arrays.asList(screenSize).indexOf(type)];
+		for(int eachScreen : screenSize) {
+			if(Arrays.asList(screenSize).contains(size))
+			screenWattage = wattage[Arrays.asList(screenSize).indexOf(size)];
+		}
+		
+		Watts = Watts + screenWattage; 
 
+		for(String eachCpu : cpuModel) {
+			if(Arrays.asList(cpuModel).contains(cpu))
+			cpuWatts = cpuWattage[Arrays.asList(cpuModel).indexOf(cpu)];
+			
+		}
+		
+		Watts = Watts + cpuWatts;
+		
 		if (drive.equals("hard drive"))
 			if (type.equals("laptop"))
 				Watts = Watts + 1.85;
@@ -68,8 +84,6 @@ public class ElectricityUse
 		
 		System.out.println(Watts);
 				
-		}
-		
 	}
-
+		
 }
