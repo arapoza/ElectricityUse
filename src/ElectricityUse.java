@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class ElectricityUse
 {
@@ -7,6 +8,9 @@ public class ElectricityUse
 	{
 		// TODO Auto-generated method stub
 		double Watts = 0;
+		Integer[] screenSize = {15, 17, 19, 20, 21, 22, 24, 30, 32, 37, 42, 50};
+		Integer[] wattage    = {15, 18, 20, 24, 26, 30, 40, 50, 55, 60, 80, 100};
+		Integer screenWattage = 0;
 		
 		System.out.println("Tool to calculate your computer's lifetime cost. If prompt is given for options, type selection exactly as shown.");
 		
@@ -42,25 +46,30 @@ public class ElectricityUse
 		System.out.println("How long do you plan to keep you computer (in years)?");
 		double length = scanlength.nextDouble();
 		
-		if (drive == "hard drive")
-			if (type == "laptop")
+		for(int eachItem : screenSize) {
+			if(Arrays.asList(screenSize).contains(type))
+			screenWattage = wattage[Arrays.asList(screenSize).indexOf(type)];
+
+		if (drive.equals("hard drive"))
+			if (type.equals("laptop"))
 				Watts = Watts + 1.85;
 				
-			if (type == "desktop")
+			if (type.equals("desktop"))
 				Watts = Watts + 7.75;
 			
-		if (drive == "SSD")
+		if (drive.equals("SSD"))
 			Watts = Watts + 1.7;
 		
-		if (ram == "DDR3")
+		if (ram.equals("DDR3"))
 			Watts = Watts + 3;
 		
-		if (ram == "DDR4")
+		if (ram.equals("DDR4"))
 			Watts = Watts + 1.5;
 		
+		System.out.println(Watts);
+				
+		}
 		
-				
-				
 	}
 
 }
