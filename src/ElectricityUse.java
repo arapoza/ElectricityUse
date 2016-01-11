@@ -8,6 +8,10 @@ public class ElectricityUse
 	{
 		// TODO Auto-generated method stub
 		double Watts = 0;
+		double batteryCost = 0;
+		double kWh = 0;
+		double totalCost = 0;
+		double monthlyPrice = 0;
 		
 		Integer[] screenSize = {15, 17, 19, 20, 21, 22, 24, 30, 32, 37, 42, 50};
 		Integer[] wattage    = {15, 18, 20, 24, 26, 30, 40, 50, 55, 60, 80, 100};
@@ -16,6 +20,9 @@ public class ElectricityUse
 		String[] cpuModel    = {"i3", "i5", "i7", "AMD 2 core", "AMD 4 core", "AMD 8 core"};
 		Integer[] cpuWattage = {64, 84, 86, 80, 95, 110};
 		Integer cpuWatts = 0;
+		
+		String[] region = {"New England", "Middle Atlantic", "Pacific Contiguous", "Pacific Noncontiguous", "South Atlantic", "Mountain"};
+		double[] price  = {18.37, 16.31, 13.47, 25.07, 11.94, 11.91};
 		
 		System.out.println("Tool to calculate your computer's lifetime cost. If prompt is given for options, type selection exactly as shown.");
 		
@@ -51,6 +58,14 @@ public class ElectricityUse
 		System.out.println("How long do you plan to keep you computer (in years)?");
 		double length = scanlength.nextDouble();
 		
+		Scanner scanlong = new Scanner(System.in);
+		System.out.println("How many hours per day do you expect to leave your computer on?");
+		double howLong = scanscreen.nextDouble();
+		
+		Scanner scanRegion = new Scanner(System.in);
+		System.out.println("What region of the US do you live in (New England, Middle Atlantic, Pacific Contiguous, Pacific Noncontiguous, South Atlantic, Mountain?");
+		String regionInput = scanRegion.nextLine();
+		
 		for(int eachScreen : screenSize) {
 			if(Arrays.asList(screenSize).contains(size))
 			screenWattage = wattage[Arrays.asList(screenSize).indexOf(size)];
@@ -83,9 +98,19 @@ public class ElectricityUse
 			Watts = Watts + 1.5;
 		
 		if (mouse.equals("yes"))
-			
+			batteryCost = length * 3 *.5;
 		
-		System.out.println(Watts);
+		for(String eachRegion : region) {
+			if(Arrays.asList(region).contains(regionInput))
+			monthlyPrice = price[Arrays.asList(region).indexOf(regionInput)];
+		
+	}
+		
+		kWh = (Watts * howLong * 365) / 1000;
+		totalCost =  cost + ((kWh * monthlyPrice) / 100) + batteryCost;
+		
+		
+		System.out.println("The total cost for your computer is " + totalCost);
 				
 	}
 		
